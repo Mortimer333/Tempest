@@ -2,7 +2,7 @@
 var objectTooltipsMort = {};
 
 function createTooltip() {
-  var ranges = document.getElementsByClassName("mortTooltip") // CURRENT INPUT
+  var ranges = document.getElementsByClassName("tempestTooltip") // CURRENT INPUT
   var thumbSize;
   //SETTING THE SIZE OF THUMB
   var indexId = 0;
@@ -16,14 +16,14 @@ function createTooltip() {
     //SETING THE RATION OF SETED VALUE IN INPUT (the procent on which is thumb)
     var ratio = (range.value - range.min) / (range.max - range.min)
     var span = document.createElement("span");
-    span.className = "TooltipsClass";
+    span.className = "tooltipsTempest";
     span.style.position = "relative";
     span.id = "tooltip" + indexId
     span.innerHTML = range.value;
     //THE ALGORITM WHICH CALCULATES THE POSITION ON WHICH TOOLTIP MUST BE - https://stackoverflow.com/questions/48880523/how-to-precisely-find-thumb-position-of-input-type-range
     var position = ((thumbSize / 2) + (ratio * range.clientWidth) - (ratio * thumbSize));
     var crHTML = range.outerHTML
-    range.outerHTML = "<div>" + span.outerHTML + "</div>" + crHTML;
+    range.outerHTML = "<div style='width:100%;'>" + span.outerHTML + "</div>" + crHTML;
     var spanRendered = document.getElementById("tooltip" + indexId);
     var leftValue = spanRendered.style.left.replace(/\D/g, '');
     //AFTER CREATING TOOLTIP WE NEED TO GET THE SIZE OF IT AND SET IT
@@ -38,7 +38,7 @@ function createTooltip() {
 
 
 function showrange(evnt) {
-  var ranges = document.getElementsByClassName("mortTooltip") // CURRENT INPUT
+  var ranges = document.getElementsByClassName("tempestTooltip") // CURRENT INPUT
   var thumbSize;
   var tooltip;
   tooltip = objectTooltipsMort[evnt.id]
