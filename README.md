@@ -3,9 +3,6 @@
 
 Tempest is very small library created to add tooltips to the <b>input <i>type=range</i></b>. For now it adds only tooltips over the thumb of the input. 
 
-# Preview
-
-
 
 # Instruction
 
@@ -21,3 +18,7 @@ Tempest is very small library created to add tooltips to the <b>input <i>type=ra
 
 <b>TL;TR</b>
 <p>Create input with <b>class=<i>"tempestTooltip"</i></b>, id and attribute <b>thumbsize</b> if you have changed the size of thumb.</p>
+
+# More info
+
+<p> The whole function works by creating <b>div</b> over the <b>input</b> and has appended <b>span</b> which has his <i><b>left</b> css attribute</i> changed on each toggle of input value. So for each <b>input</b> there are created <b>div</b> as container and <b>span</b> as value holder and tooltip.</p>
