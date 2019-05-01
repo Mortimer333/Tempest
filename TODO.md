@@ -6,4 +6,5 @@
   <li>Tooltip on thumb</li>
   <li>Range input but <b>horizontal</b></li>
   <li>The range as <b>from...to</b> (<i>two tooltips</i>) - two inputs on each other, thumb can't go through each others</li> 
+  <li>On the resize of window move tooltips</li> 
 </ol>
