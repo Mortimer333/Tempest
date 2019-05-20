@@ -27,7 +27,7 @@ Tempest is very small library created to add tooltips to the <b>input <i>type=ra
       <li><b>.tooltipsInputDown</b>;</li>
     </ul>
   </li>
-  <li>If you don't want to style your tooltips and inputes types=range you can use my custom styles (<i>created with help of <a href="https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/">CSS Tricks</a></i>).</li>  
+  <li>If you don't want to style your tooltips and inputes types=range you can use my <a href="https://github.com/Mortimer333/Tempest/blob/master/style.css">custom styles</a> (<i>created with help of <a href="https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/">CSS Tricks</a></i>).</li>  
 </ul>
 
 <b>TL;TR;</b>
