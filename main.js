@@ -117,7 +117,7 @@ function createTooltip() {
 			objectInputMort["tooltip" + indexId] = range.id;
 	    indexId++;
 	  } else {
-			console.log("Input doesn't have ID. Check the guide - https://github.com/Mortimer333/Tempest/blob/master/README.md#instruction");
+			console.log("Input doesn't have ID. Check the guide - https://github.com/Mortimer333/Tempest/blob/master/README.md#user-content-idofinput");
 			console.log(range);
 		}
 	}
