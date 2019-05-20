@@ -2,11 +2,12 @@
 /* MENU
 *  1.TOLLTIP DOWN
 *  2.TOOLTIP UP
-*  3.INPUT
+*  3.MIXED DOWN/UP
+*  4.INPUT
 */
 
 /*1.TOLLTIP DOWN*/
-.tooltipsDown::before{
+.tooltipsDown::before, .tooltipsInputDown::before{
   content: "";
   width: 0;
   height: 0;
@@ -14,20 +15,24 @@
   display: block;
   border-left: 10px solid transparent;
   border-right: 11px solid transparent;
-  border-bottom: 10px solid #ebebeb;
+  border-bottom: 10px solid #CDCDCD;
   top: -10px;
 }
 
+.tooltipsInputDown::before{
+  top:-9px;
+}
+
 .tooltipsDown{
-  background-color: #ebebeb;
+  background-color: #CDCDCD;
   width: 20px;
   display: block;
   text-align: center;
-  color:#808080;
+  color:#FFF;
 }
 
 /*2.TOOLTIP UP*/
-.tooltipsUp::after{
+.tooltipsUp::after, .tooltipsInputUp::after{
   content: "";
   width: 0;
   height: 0;
@@ -35,19 +40,35 @@
   display: block;
   border-left: 10px solid transparent;
   border-right: 11px solid transparent;
-  border-top: 10px solid #ebebeb;
+  border-top: 10px solid #CDCDCD;
 }
 
 .tooltipsUp{
-  background-color: #ebebeb;
+  background-color: #CDCDCD;
   width: 20px;
   display: block;
   text-align: center;
-  color:#808080;
+  color:#FFF;
 }
 
+/*3.MIXED DOWN/UP*/
+.tooltipsInputUp input, .tooltipsInputDown input{
+  border: 0;
+  width: 20px;
+  text-align: center;
+  background-color: #9A9A9A;
+  color:#FFF;
+}
 
-/*3.INPUT*/
+.tooltipsInputUp, .tooltipsInputDown{
+  background-color: #CDCDCD;
+  width: 20px;
+  display: block;
+  text-align: center;
+  color: #FFF;
+}
+
+/*4.INPUT*/
 input[type=range] {
   -webkit-appearance: none ;
   width: 100% ;
