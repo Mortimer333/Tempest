@@ -17,61 +17,64 @@ function createTooltip() {
     ranges.push(rangesDown[i]);
   }
 
+//SETTING THE SIZE OF THUMB
   var thumbSize;
-
-  //SETTING THE SIZE OF THUMB
-  var indexId = 0;
-
-//MAIN FOR
+	//THE SPAN ID WHICH DEFINES CONECTIONS
+	var indexId = 0;
+	//MAIN FOR
   for (var range of ranges) {
-    if (range.attributes.thumbsize) {
-      thumbSize = range.attributes.thumbsize.value //IF ATTRIBUTE IS SET IT WILL USE ITS VALUE
-    } else {
-      thumbSize = 9.6; //THE DEFAULT VALUE
-    }
+		if(range.id != ""){
+	    if (range.attributes.thumbsize) {
+	      thumbSize = range.attributes.thumbsize.value //IF ATTRIBUTE IS SET IT WILL USE ITS VALUE
+	    } else {
+	      thumbSize = 9.6; //THE DEFAULT VALUE
+	    }
 
-    //SETING THE RATION OF SETED VALUE IN INPUT (the procent on which is thumb)
-    var ratio = (range.value - range.min) / (range.max - range.min)
-    var span = document.createElement("span");
+	    //SETING THE RATION OF SETED VALUE IN INPUT (the procent on which is thumb)
+	    var ratio = (range.value - range.min) / (range.max - range.min)
+	    var span = document.createElement("span");
 
-    //ADDING ADEQUATE CLASS TO THE TOOLTIP
-    var classArray = range.className.split(" ");
-    for (var classTempest of classArray) {
-      if (classTempest == "tempestTooltipUp") {
-        span.className = "tooltipsTempestUp";
-      } else if (classTempest == "tempestTooltipDown") {
-        span.className = "tooltipsTempestDown";
-      }
-    }
+	    //ADDING ADEQUATE CLASS TO THE TOOLTIP
+	    var classArray = range.className.split(" ");
+	    for (var classTempest of classArray) {
+	      if (classTempest == "tempestTooltipUp") {
+	        span.className = "tooltipsUp";
+	      } else if (classTempest == "tempestTooltipDown") {
+	        span.className = "tooltipsDown";
+	      }
+	    }
 
-    span.style.position = "relative";
-    span.id = "tooltip" + indexId
-    span.innerHTML = range.value;
+	    span.style.position = "relative";
+	    span.id = "tooltip" + indexId
+	    span.innerHTML = range.value;
 
-    //THE ALGORITM WHICH CALCULATES THE POSITION ON WHICH TOOLTIP MUST BE - https://stackoverflow.com/questions/48880523/how-to-precisely-find-thumb-position-of-input-type-range
-    var position = ((thumbSize / 2) + (ratio * range.clientWidth) - (ratio * thumbSize));
-    var crHTML = range.outerHTML;
+	    //THE ALGORITM WHICH CALCULATES THE POSITION ON WHICH TOOLTIP MUST BE - https://stackoverflow.com/questions/48880523/how-to-precisely-find-thumb-position-of-input-type-range
+	    var position = ((thumbSize / 2) + (ratio * range.clientWidth) - (ratio * thumbSize));
+	    var crHTML = range.outerHTML;
 
-    //CHECKING CLASS
-    for (var classTempest of classArray) {
-      if (classTempest == "tempestTooltipUp") {
-        range.outerHTML = "<div> <div style='width:100%;'>" + span.outerHTML + "</div>" + crHTML + "</div>";
-      } else if (classTempest == "tempestTooltipDown") {
-        range.outerHTML = "<div>" + crHTML + "<div style='width:100%;'>" + span.outerHTML + "</div> </div>";
-      }
-    }
+	    //CHECKING CLASS
+	    for (var classTempest of classArray) {
+	      if (classTempest == "tempestTooltipUp") {
+	        range.outerHTML = "<div> <div style='width:100%;'>" + span.outerHTML + "</div>" + crHTML + "</div>";
+	      } else if (classTempest == "tempestTooltipDown") {
+	        range.outerHTML = "<div>" + crHTML + "<div style='width:100%;'>" + span.outerHTML + "</div> </div>";
+	      }
+	    }
 
-    var spanRendered = document.getElementById("tooltip" + indexId);
-    var leftValue = spanRendered.style.left.replace(/\D/g, '');
+	    var spanRendered = document.getElementById("tooltip" + indexId);
+	    var leftValue = spanRendered.style.left.replace(/\D/g, '');
 
-    //AFTER CREATING TOOLTIP WE NEED TO GET THE SIZE OF IT AND SET IT
-    spanRendered.style.left = position - (spanRendered.offsetWidth / 2) + "px";
-    document.getElementById(range.id).oninput = function(event) {
-      showrange(event.target);
-    }
-    objectTooltipsMort[range.id] = document.getElementById("tooltip" + indexId);
-    indexId++;
-  }
+	    //AFTER CREATING TOOLTIP WE NEED TO GET THE SIZE OF IT AND SET IT
+	    spanRendered.style.left = position - (spanRendered.offsetWidth / 2) + "px";
+	    document.getElementById(range.id).oninput = function(event) {
+	      showrange(event.target);
+	    }
+	    objectTooltipsMort[range.id] = document.getElementById("tooltip" + indexId);
+	    indexId++;
+	  } else {
+			console.log("Input doesn't have ID. Check the guide - https://github.com/Mortimer333/Tempest/blob/master/README.md");
+		}
+	}
 }
 
 
@@ -91,13 +94,15 @@ function showrange(evnt) {
     //THE DEFAULT VALUE
     thumbSize = 9.6;
   }
-
   var ratio = (evnt.value - evnt.min) / (evnt.max - evnt.min)
-  var position = ((thumbSize / 2) + (ratio * evnt.clientWidth) - (ratio * thumbSize)) - (tooltip.offsetWidth / 2) + "px";
+	//FOR SOME REASON IT REQUIERS TO ADD TO IT 1 SO IT WOULD SET AT CENTER
+  var position = ((thumbSize / 2) + (ratio * evnt.clientWidth) - (ratio * thumbSize)) - (tooltip.offsetWidth / 2) + 1 + "px";
   tooltip.style.left = position;
 }
 
-// INVOKING THE FUNCTION
+
+
+// CASTING THE FUNCTION
 document.addEventListener("DOMContentLoaded", function() {
   createTooltip();
 });
