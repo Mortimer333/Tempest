@@ -14,7 +14,7 @@ Tempest is very small library created to add tooltips to the <b>input <i>type=ra
   </li>
   <li>Because the algorithm uses the size of the thumb so when you don't specify the size of it, it will use the default value (<i>9.6px</i>). <b>Remember to add left and right border to the size</b>;</li>
   <li>I added a class to the tooltip element so you can customize them without trouble - <b>.tooltipsUp</b> or <b>.tooltipsDown</b>;</li>
-  <li>If you don't want to style your tooltip you can use my custom styles (created with help of <a href="https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/">CSS Tricks</a>).</li>  
+  <li>If you don't want to style your tooltip and inputes types=range you can use my custom styles (<i>created with help of <a href="https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/">CSS Tricks</a></i>).</li>  
 </ul>
 
 <b>TL;TR</b>
