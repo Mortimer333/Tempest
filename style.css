@@ -1,0 +1,157 @@
+
+/* MENU
+*  1.TOLLTIP DOWN
+*  2.TOOLTIP UP
+*  3.INPUT
+*/
+
+/*1.TOLLTIP DOWN*/
+.tooltipsDown::before{
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  display: block;
+  border-left: 10px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 10px solid #ebebeb;
+  top: -10px;
+}
+
+.tooltipsDown{
+  background-color: #ebebeb;
+  width: 20px;
+  display: block;
+  text-align: center;
+  color:#808080;
+}
+
+/*2.TOOLTIP UP*/
+.tooltipsUp::after{
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  display: block;
+  border-left: 10px solid transparent;
+  border-right: 11px solid transparent;
+  border-top: 10px solid #ebebeb;
+}
+
+.tooltipsUp{
+  background-color: #ebebeb;
+  width: 20px;
+  display: block;
+  text-align: center;
+  color:#808080;
+}
+
+
+/*3.INPUT*/
+input[type=range] {
+  -webkit-appearance: none ;
+  width: 100% ;
+  margin: 20px 0 ;
+  background-color: transparent !important;
+}
+input[type=range]:focus {
+  outline: none ;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100% ;
+  height: 7.4px ;
+  cursor: pointer ;
+  -webkit-box-shadow: inset 0px 1px 1px 1px rgba(0,0,0,.2);
+          box-shadow: inset 0px 1px 1px 1px rgba(0,0,0,.2);
+  background: #FFF  ;
+  border-radius: 10px;
+  border: 0px solid #000001 ;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-box-shadow: 0.3px 0.3px 0.3px rgba(0, 0, 0, 0), 0px 0px 0.3px rgba(13, 13, 13, 0) ;
+          box-shadow: 0.3px 0.3px 0.3px rgba(0, 0, 0, 0), 0px 0px 0.3px rgba(13, 13, 13, 0) ;
+  border: 0px solid rgba(0, 0, 0, 0) ;
+  height: 17px ;
+  width: 12px ;
+  border-radius: 0 0 50% 50%;
+  background: rgba(247,247,247,1);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(247,247,247,1)), color-stop(0%, rgba(255,255,255,1)), color-stop(60%, rgba(173,173,173,1)), color-stop(84%, rgba(140,140,140,1)), color-stop(100%, rgba(140,140,140,1)));
+background: -webkit-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 0%, rgba(173,173,173,1) 60%, rgba(140,140,140,1) 84%, rgba(140,140,140,1) 100%);
+background: -o-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 0%, rgba(173,173,173,1) 60%, rgba(140,140,140,1) 84%, rgba(140,140,140,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, from(rgba(247,247,247,1)), color-stop(0%, rgba(255,255,255,1)), color-stop(60%, rgba(173,173,173,1)), color-stop(84%, rgba(140,140,140,1)), to(rgba(140,140,140,1)));
+background: linear-gradient(to bottom, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 0%, rgba(173,173,173,1) 60%, rgba(140,140,140,1) 84%, rgba(140,140,140,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#8c8c8c', GradientType=0 );
+  cursor: pointer ;
+  -webkit-appearance: none ;
+  margin-top: -4.8px ;
+  z-index:100;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #FFF  ;
+}
+input[type=range]::-moz-range-track {
+  width: 100% ;
+  height: 7.4px ;
+  cursor: pointer ;
+  box-shadow: inset 0px 1px 1px 1px rgba(0,0,0,.2);
+  background: #FFF  ;
+  border-radius: 10px;
+  border: 0px solid #000001 ;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0.3px 0.3px 0.3px rgba(0, 0, 0, 0), 0px 0px 0.3px rgba(13, 13, 13, 0) ;
+  border: 0px solid rgba(0, 0, 0, 0) ;
+  height: 17px ;
+  width: 12px ;
+  border-radius: 0 0 50% 50%;
+  background: rgba(247,247,247,1);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(247,247,247,1)), color-stop(0%, rgba(255,255,255,1)), color-stop(60%, rgba(173,173,173,1)), color-stop(84%, rgba(140,140,140,1)), color-stop(100%, rgba(140,140,140,1)));
+background: -webkit-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 0%, rgba(173,173,173,1) 60%, rgba(140,140,140,1) 84%, rgba(140,140,140,1) 100%);
+background: -o-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 0%, rgba(173,173,173,1) 60%, rgba(140,140,140,1) 84%, rgba(140,140,140,1) 100%);
+background: linear-gradient(to bottom, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 0%, rgba(173,173,173,1) 60%, rgba(140,140,140,1) 84%, rgba(140,140,140,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#8c8c8c', GradientType=0 );
+  cursor: pointer ;
+  z-index:100;
+}
+input[type=range]::-ms-track {
+  width: 100% ;
+  height: 7.4px ;
+  cursor: pointer ;
+  background: #FFF  ;
+  border-color: transparent ;
+  color: #FFF ;
+}
+input[type=range]::-ms-fill-lower {
+  background: #FFF   ;
+  border: 0px solid #000001 ;
+  border-radius: 10px;
+  box-shadow: inset 0px 1px 1px 1px rgba(0,0,0,.2);
+}
+input[type=range]::-ms-fill-upper {
+  background: #FFF  ;
+  border: 0px solid #000001 ;
+  border-radius: 10px;
+  box-shadow: inset 0px 1px 1px 1px rgba(0,0,0,.2);
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 0.3px 0.3px 0.3px rgba(0, 0, 0, 0), 0px 0px 0.3px rgba(13, 13, 13, 0) ;
+  border: 0px solid rgba(0, 0, 0, 0) ;
+  height: 17px ;
+  width: 12px ;
+  border-radius: 0 0 50% 50%;
+  background: rgba(247,247,247,1);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(247,247,247,1)), color-stop(0%, rgba(255,255,255,1)), color-stop(60%, rgba(173,173,173,1)), color-stop(84%, rgba(140,140,140,1)), color-stop(100%, rgba(140,140,140,1)));
+background: -webkit-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 0%, rgba(173,173,173,1) 60%, rgba(140,140,140,1) 84%, rgba(140,140,140,1) 100%);
+background: -o-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 0%, rgba(173,173,173,1) 60%, rgba(140,140,140,1) 84%, rgba(140,140,140,1) 100%);
+background: linear-gradient(to bottom, rgba(247,247,247,1) 0%, rgba(255,255,255,1) 0%, rgba(173,173,173,1) 60%, rgba(140,140,140,1) 84%, rgba(140,140,140,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#8c8c8c', GradientType=0 );
+  cursor: pointer ;
+  height: 7.4px ;
+  z-index:100;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #FFF ;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #FFF ;
+}

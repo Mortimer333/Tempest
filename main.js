@@ -6,6 +6,8 @@ function createTooltip() {
 // CURRENT INPUT
   var rangesUp = document.getElementsByClassName("tempestTooltipUp")
   var rangesDown = document.getElementsByClassName("tempestTooltipDown")
+	var rangesInput = document.getElementsByClassName("tempestTooltipInputUp")
+	var rangesInput = document.getElementsByClassName("tempestTooltipInputDown")
   var ranges = [];
 
   //CREATING ONE MAIN ARRAY WITH ELEMENTS
@@ -72,7 +74,7 @@ function createTooltip() {
 	    objectTooltipsMort[range.id] = document.getElementById("tooltip" + indexId);
 	    indexId++;
 	  } else {
-			console.log("Input doesn't have ID. Check the guide - https://github.com/Mortimer333/Tempest/blob/master/README.md");
+			console.log("Input " + range.className + " doesn't have ID. Check the guide - https://github.com/Mortimer333/Tempest/blob/master/README.md#instruction");
 		}
 	}
 }
@@ -88,15 +90,14 @@ function showrange(evnt) {
   tooltip.innerHTML = evnt.value;
 
   //SETTING THE SIZE OF THUMB
-  if (evnt.attributes.thumbsize) {
+  if (evnt.attributes.thumbsize && evnt.attributes.thumbsize.value != "") {
     thumbSize = evnt.attributes.thumbsize.value
   } else {
     //THE DEFAULT VALUE
     thumbSize = 9.6;
   }
   var ratio = (evnt.value - evnt.min) / (evnt.max - evnt.min)
-	//FOR SOME REASON IT REQUIERS TO ADD TO IT 1 SO IT WOULD SET AT CENTER
-  var position = ((thumbSize / 2) + (ratio * evnt.clientWidth) - (ratio * thumbSize)) - (tooltip.offsetWidth / 2) + 1 + "px";
+  var position = ((thumbSize / 2) + (ratio * evnt.clientWidth) - (ratio * thumbSize)) - (tooltip.offsetWidth / 2) + "px";
   tooltip.style.left = position;
 }
 
