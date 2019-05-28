@@ -10,29 +10,28 @@ function updateRangeOnIpute(evnt) {
 }
 
 function createTooltip() {
-
 // CURRENT INPUT
   var rangesUp = document.getElementsByClassName("tempestTooltipUp")
   var rangesDown = document.getElementsByClassName("tempestTooltipDown")
 	var rangesInputUp = document.getElementsByClassName("tempestTooltipInputUp")
 	var rangesInputDown = document.getElementsByClassName("tempestTooltipInputDown")
-  var ranges = [];
+	var rangesMort = [];
 
   //CREATING ONE MAIN ARRAY WITH ELEMENTS
   for (var i = 0; i < rangesUp.length; i++) {
-    ranges.push(rangesUp[i])
+    rangesMort.push(rangesUp[i])
   }
 
   for (var i = 0; i < rangesDown.length; i++) {
-    ranges.push(rangesDown[i]);
+    rangesMort.push(rangesDown[i]);
   }
 
 	for (var i = 0; i < rangesInputUp.length; i++) {
-		ranges.push(rangesInputUp[i])
+		rangesMort.push(rangesInputUp[i])
 	}
 
 	for (var i = 0; i < rangesInputDown.length; i++) {
-		ranges.push(rangesInputDown[i])
+		rangesMort.push(rangesInputDown[i])
 	}
 
 //SETTING THE SIZE OF THUMB
@@ -40,11 +39,11 @@ function createTooltip() {
 	//THE SPAN ID WHICH DEFINES CONECTIONS
 	var indexId = 0;
 	//MAIN FOR
-	if (ranges[ranges.length-1] == undefined) {
-		ranges.pop()
+	if (rangesMort[rangesMort.length-1] == undefined) {
+		rangesMort.pop()
 	}
 
-  for (var range of ranges) {
+  for (var range of rangesMort) {
 		if(range.id != ""){
 	    if (range.attributes.thumbsize) {
 	      thumbSize = range.attributes.thumbsize.value //IF ATTRIBUTE IS SET IT WILL USE ITS VALUE
@@ -125,7 +124,6 @@ function createTooltip() {
 
 
 function showrange(evnt) {
-
   var thumbSize;
   var tooltip;
 
@@ -154,3 +152,33 @@ function showrange(evnt) {
 document.addEventListener("DOMContentLoaded", function() {
   createTooltip();
 });
+
+window.onresize = function() {
+// CURRENT INPUT
+  var rangesUp = document.getElementsByClassName("tempestTooltipUp")
+  var rangesDown = document.getElementsByClassName("tempestTooltipDown")
+	var rangesInputUp = document.getElementsByClassName("tempestTooltipInputUp")
+	var rangesInputDown = document.getElementsByClassName("tempestTooltipInputDown")
+	var rangesMort = [];
+
+  //CREATING ONE MAIN ARRAY WITH ELEMENTS
+  for (var i = 0; i < rangesUp.length; i++) {
+    rangesMort.push(rangesUp[i])
+  }
+
+  for (var i = 0; i < rangesDown.length; i++) {
+    rangesMort.push(rangesDown[i]);
+  }
+
+	for (var i = 0; i < rangesInputUp.length; i++) {
+		rangesMort.push(rangesInputUp[i])
+	}
+
+	for (var i = 0; i < rangesInputDown.length; i++) {
+		rangesMort.push(rangesInputDown[i])
+	}
+
+	for (var i = 0; i < rangesMort.length; i++) {
+		showrange(rangesMort[i])
+	}
+}
