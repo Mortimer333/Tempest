@@ -1,9 +1,10 @@
 
 /* MENU
 *  1.TOLLTIP DOWN
-*  2.TOOLTIP UP
-*  3.MIXED DOWN/UP
-*  4.INPUT
+*  2.TOOLTIPS MIDDLE
+*  3.TOOLTIP UP
+*  4.MIXED DOWN/UP
+*  5.INPUT
 */
 
 /*1.TOLLTIP DOWN*/
@@ -31,7 +32,13 @@
   color:#FFF;
 }
 
-/*2.TOOLTIP UP*/
+
+/*2.TOOLTIPS MIDDLE*/
+.tooltipsInputMiddle, .tooltipsMiddle{
+  top:17px;
+}
+
+/*3.TOOLTIP UP*/
 .tooltipsUp::after, .tooltipsInputUp::after{
   content: "";
   width: 0;
@@ -51,8 +58,8 @@
   color:#FFF;
 }
 
-/*3.MIXED DOWN/UP*/
-.tooltipsInputUp input, .tooltipsInputDown input{
+/*4.MIXED DOWN/UP*/
+.tooltipsInputUp input, .tooltipsInputDown input, .tooltipsInputMiddle input{
   border: 0;
   width: 20px;
   text-align: center;
@@ -60,7 +67,7 @@
   color:#FFF;
 }
 
-.tooltipsInputUp, .tooltipsInputDown{
+.tooltipsInputUp, .tooltipsInputDown, .tooltipsInputMiddle, .tooltipsMiddle{
   background-color: #CDCDCD;
   width: 20px;
   display: block;
@@ -68,7 +75,7 @@
   color: #FFF;
 }
 
-/*4.INPUT*/
+/*5.INPUT*/
 input[type=range] {
   -webkit-appearance: none ;
   width: 100% ;
