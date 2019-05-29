@@ -6,6 +6,7 @@ Tempest is very small library created to add tooltips to the <b>input <i>type=ra
 <ul>
   <li>Creates static tooltip over or under input.</li>
   <li>Creates input tooltip over or under input.</li>
+  <li>Creates input tooltip or static tooltip over the thumb of input.</li>
 </ul>
 
 
