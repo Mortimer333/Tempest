@@ -28,62 +28,21 @@ function createTooltip() {
 
 	for (var i = 0; i < rangesInputUp.length; i++) {
 		rangesMort.push(rangesInputUp[i])
-	}//GLOBAL VARIABLES
-var objectTooltipsMort = {};
-var objectInputMort = {};
-
-function updateRangeOnIpute(evnt) {
-	var value = evnt.value;
-	var range = document.getElementById(objectInputMort[evnt.parentElement.id])
-	range.value = value;
-	showrange(range)
-}
-
-function createTooltip() {
-// CURRENT INPUT
-  var rangesUp = document.getElementsByClassName("tempestTooltipUp")
-  var rangesDown = document.getElementsByClassName("tempestTooltipDown")
-	var rangesInputUp = document.getElementsByClassName("tempestTooltipInputUp")
-	var rangesInputDown = document.getElementsByClassName("tempestTooltipInputDown")
-	var rangesMiddle = document.getElementsByClassName("tempestTooltipMiddle")
-	var rangesInputMiddle = document.getElementsByClassName("tempestTooltipInputMiddle")
-	var rangesMort = [];
-
-  //CREATING ONE MAIN ARRAY WITH ELEMENTS
-  for (var i = 0; i < rangesUp.length; i++) {
-    rangesMort.push(rangesUp[i])
-  }
-
-  for (var i = 0; i < rangesDown.length; i++) {
-    rangesMort.push(rangesDown[i]);
-  }
-
-	for (var i = 0; i < rangesInputUp.length; i++) {
-		rangesMort.push(rangesInputUp[i])
 	}
 
 	for (var i = 0; i < rangesInputDown.length; i++) {
 		rangesMort.push(rangesInputDown[i])
 	}
 
-	for (var i = 0; i < rangesMiddle.length; i++) {
-		rangesMort.push(rangesMiddle[i])
-	}
-
-	for (var i = 0; i < rangesInputMiddle.length; i++) {
-		rangesMort.push(rangesInputMiddle[i])
-	}
-
 //SETTING THE SIZE OF THUMB
   var thumbSize;
 	//THE SPAN ID WHICH DEFINES CONECTIONS
 	var indexId = 0;
-
+	//MAIN FOR
 	if (rangesMort[rangesMort.length-1] == undefined) {
 		rangesMort.pop()
 	}
 
-	//MAIN FOR
   for (var range of rangesMort) {
 		if(range.id != ""){
 	    if (range.attributes.thumbsize) {
@@ -95,7 +54,6 @@ function createTooltip() {
 	    //SETING THE RATION OF SETED VALUE IN INPUT (the procent on which is thumb)
 	    var ratio = (range.value - range.min) / (range.max - range.min)
 	    var span = document.createElement("span");
-			span.style.position = "relative";
 
 	    //ADDING ADEQUATE CLASS TO THE TOOLTIP
 	    var classArray = range.className.split(" ");
@@ -116,21 +74,13 @@ function createTooltip() {
 					input.id = "tempestInputId" + indexId;
 					span.appendChild(input)
 					span.className = "tooltipsInputDown";
-	      } else if (classTempest == "tempestTooltipMiddle") {
-	      	span.className = "tooltipsMiddle";
-					span.style.position = "absolute";
-	      } else if (classTempest == "tempestTooltipInputMiddle") {
-	      	var input = document.createElement("input")
-					input.type = "text"
-					input.id = "tempestInputId" + indexId;
-					span.appendChild(input)
-					span.className = "tooltipsInputMiddle";
-					span.style.position = "absolute";
 	      }
 	    }
+
+	    span.style.position = "relative";
 	    span.id = "tooltip" + indexId
 			for (var classTempest of classArray) {
-	      if (classTempest == "tempestTooltipUp" || classTempest == "tempestTooltipDown" || classTempest == "tempestTooltipMiddle") {
+	      if (classTempest == "tempestTooltipUp" || classTempest == "tempestTooltipDown") {
 			    span.innerHTML = range.value;
 	      }
 	    }
@@ -145,8 +95,6 @@ function createTooltip() {
 	        range.outerHTML = "<div> <div style='width:100%;'>" + span.outerHTML + "</div>" + crHTML + "</div>";
 	      } else if (classTempest == "tempestTooltipDown" || classTempest == "tempestTooltipInputDown") {
 	        range.outerHTML = "<div>" + crHTML + "<div style='width:100%;'>" + span.outerHTML + "</div> </div>";
-	      } else if (classTempest == "tempestTooltipMiddle" || classTempest == "tempestTooltipInputMiddle") {
-	        range.outerHTML = "<div style='position:relative;'> <div style='width:100%;'>" + span.outerHTML + "</div>" + crHTML + "</div>";
 	      }
 	    }
 
@@ -155,17 +103,15 @@ function createTooltip() {
 
 	    //AFTER CREATING TOOLTIP WE NEED TO GET THE SIZE OF IT AND SET IT
 	    spanRendered.style.left = position - (spanRendered.offsetWidth / 2) + "px";
-			if (spanRendered.className == "tooltipsInputDown" || spanRendered.className == "tooltipsInputUp" || spanRendered.className == "tooltipsInputMiddle") {
+			if (spanRendered.className == "tooltipsInputDown" || spanRendered.className == "tooltipsInputUp") {
 				spanRendered.children[0].value = range.value;
 				document.getElementById("tempestInputId" + indexId).oninput = function (event) {
 					updateRangeOnIpute(event.target)
 				}
 			}
-
 	    document.getElementById(range.id).oninput = function(event) {
 	      showrange(event.target);
 	    }
-
 	    objectTooltipsMort[range.id] = document.getElementById("tooltip" + indexId);
 			objectInputMort["tooltip" + indexId] = range.id;
 	    indexId++;
@@ -177,27 +123,14 @@ function createTooltip() {
 }
 
 
-function tooltipsMiddleShower() {
-	//FUNCTION FOR DISAPEARING AND SHOWING MIDDLE TOOLTIP
-	var tooltipsMiddle = document.getElementsByClassName('tooltipsMiddle')
-	for (var tootltip of tooltipsMiddle) {
-		tootltip.addEventListener("mouseover", function () {
-			tootltip.style.visibility = "hidden";
-		})
-		tootltip.parentElement.nextSibling.addEventListener("mouseleave", function () {
-			tootltip.style.visibility = "visible";
-		})
-	}
-}
-
 function showrange(evnt) {
   var thumbSize;
   var tooltip;
 
   tooltip = objectTooltipsMort[evnt.id]
-	if (tooltip.className == "tooltipsUp" || tooltip.className == "tooltipsDown" ||  tooltip.className == "tooltipsMiddle") {
+	if (tooltip.className == "tooltipsUp" || tooltip.className == "tooltipsDown") {
 		tooltip.innerHTML = evnt.value;
-	} else if (tooltip.className == "tooltipsInputUp" || tooltip.className == "tooltipsInputDown" ||  tooltip.className == "tooltipsInputMiddle") {
+	} else if (tooltip.className == "tooltipsInputUp" || tooltip.className == "tooltipsInputDown") {
 		tooltip.children[0].value = evnt.value;
 	}
 
@@ -218,7 +151,6 @@ function showrange(evnt) {
 // CASTING THE FUNCTION
 document.addEventListener("DOMContentLoaded", function() {
   createTooltip();
-	tooltipsMiddleShower();
 });
 
 window.onresize = function() {
