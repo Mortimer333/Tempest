@@ -6,7 +6,7 @@ Tempest is very small library created to add tooltips to the <b>input <i>type=ra
 <ul>
   <li>Creates static tooltip over or under input.</li>
   <li>Creates input tooltip over or under input.</li>
-  <li>Creates input tooltip or static tooltip over the thumb of input.</li>
+  <li>Creates input tooltip or static tooltip over the thumb.</li>
 </ul>
 
 
@@ -34,9 +34,6 @@ Tempest is very small library created to add tooltips to the <b>input <i>type=ra
   <li>If you don't want to style your tooltips and inputes types=range you can use my <a href="https://github.com/Mortimer333/Tempest/blob/master/style.css">custom styles</a> (<i>created with help of <a href="https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/">CSS Tricks</a></i>).</li>  
 </ul>
 
-<b>TL;TR;</b>
-<p>Create input with <b>class=<i>"tempestTooltipUp"</i>/class=<i>"tempestTooltipDown"</i>/class=<i>"tempestTooltipInputUp"</i>/class=<i>"tempestTooltipInputDown"</i>/class=<i>"tempestTooltipMiddle"</i>/class=<i>"tempestTooltipInputMiddle"</i></b>, id and attribute <b>thumbsize</b> if you have changed the size of thumb.</p>
-
 # More info
 
-<p> The whole function works by creating <b>div</b> over the <b>input</b> and appends to it <b>span</b> which has his <i><b>left</b> css attribute</i> changed on each toggle of input value. So for each <b>input</b> there are created <b>divs</b> as containers and <b>spans</b> as value holders and tooltips.</p>
+<p> The whole function works by creating <b>div</b> over the <b>input</b> and appending to it <b>span</b> which has his <i><b>left</b> css attribute</i> changed on each toggle of input value. So for each <b>input</b> there are created <b>divs</b> as containers and <b>spans</b> as value holders and tooltips.</p>
