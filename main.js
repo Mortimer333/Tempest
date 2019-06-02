@@ -2,7 +2,7 @@
 var objectTooltipsMort = {};
 var objectInputMort = {};
 
-function updateRangeOnIpute(evnt) {
+function updateRangeOnInpute(evnt) {
 	var value = evnt.value;
 	var range = document.getElementById(objectInputMort[evnt.parentElement.id])
 	range.value = value;
@@ -128,7 +128,26 @@ function createTooltip() {
 			if (spanRendered.className == "tooltipsInputDown" || spanRendered.className == "tooltipsInputUp" || spanRendered.className == "tooltipsInputMiddle") {
 				spanRendered.children[0].value = range.value;
 				document.getElementById("tempestInputId" + indexId).oninput = function (event) {
-					updateRangeOnIpute(event.target)
+					updateRangeOnInpute(event.target)
+				}
+			}
+
+			if (range.attributes.tooltipOnHover) {
+				if (range.attributes.tooltipOnHover.value == "show") {
+					spanRendered.style.opacity = "0"
+					document.getElementById(range.id).addEventListener("mouseover", function (event) {
+						event.target.previousSibling.children[0].style.opacity = "1"
+					})
+					document.getElementById(range.id).addEventListener("mouseout", function (event) {
+						event.target.previousSibling.children[0].style.opacity = "0"
+					})
+				} else if (range.attributes.tooltipOnHover.value == "hide") {
+					document.getElementById(range.id).addEventListener("mouseover", function (event) {
+						event.target.previousSibling.children[0].style.opacity = "0"
+					})
+					document.getElementById(range.id).addEventListener("mouseout", function (event) {
+						event.target.previousSibling.children[0].style.opacity = "1"
+					})
 				}
 			}
 
@@ -139,6 +158,8 @@ function createTooltip() {
 	    objectTooltipsMort[range.id] = document.getElementById("tooltip" + indexId);
 			objectInputMort["tooltip" + indexId] = range.id;
 	    indexId++;
+
+
 	  } else {
 			console.log("Input doesn't have ID. Check the guide - https://github.com/Mortimer333/Tempest/blob/master/README.md#user-content-idofinput");
 			console.log(range);

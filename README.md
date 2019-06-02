@@ -7,6 +7,7 @@ Tempest is very small library created to add tooltips to the <b>input <i>type=ra
   <li>Creates static tooltip over or under input.</li>
   <li>Creates input tooltip over or under input.</li>
   <li>Creates input tooltip or static tooltip over the thumb.</li>
+  <li>Allows to choose if the tooltip should be visible on hover or hide on hover</li>
 </ul>
 
 
@@ -16,6 +17,10 @@ Tempest is very small library created to add tooltips to the <b>input <i>type=ra
   <li>To add the static tooltip to the input just add <b>class</b> <i>"tempestTooltipUp"</i> or <i>"tempestTooltipDown"</i> to the <b>input type=range</b>;</li>
   <li>To add the input tooltip to the input just add <b>class</b> <i>"tempestTooltipInputUp"</i> or <i>"tempestTooltipInputDown"</i> to the <b>input type=range</b>;</li>
   <li>To add the input tooltip or static tooltip to the middle of the input just add <b>class</b> <i>"tempestTooltipMiddle"</i> or <i>"tempestTooltipInputMiddle"</i> to the <b>input type=range</b>;</li>
+  <li>To add hover option to tooltip add new attribute <b>tooltipOnHover</b> and set it value accordingly:
+    <li><b>"show"</b> to show tooltip on hover;</li>
+    <li><b>"hide"</b> to hide tooltip on hover;</li>
+  </li>
   <li id="idOfInput">It's very important to add <b>id</b> to the input because that's how the function binds elements (<i>anything for id works</i>);</li>
   <li>If you specified the size of the thumb you need to add new attribute to the input <b>thumbsize</b>, like so:
 <p>&#8249;input type="<b>range</b>" name="" value="" min="5" max="15" step="0.5" <b>id="range"</b> class="<b>tempestTooltipDown</b>" <b>thumbsize="16"</b>&#8250;</p>
