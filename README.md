@@ -18,8 +18,10 @@ Tempest is very small library created to add tooltips to the <b>input <i>type=ra
   <li>To add the input tooltip to the input just add <b>class</b> <i>"tempestTooltipInputUp"</i> or <i>"tempestTooltipInputDown"</i> to the <b>input type=range</b>;</li>
   <li>To add the input tooltip or static tooltip to the middle of the input just add <b>class</b> <i>"tempestTooltipMiddle"</i> or <i>"tempestTooltipInputMiddle"</i> to the <b>input type=range</b>;</li>
   <li>To add hover option to tooltip add new attribute <b>tooltipOnHover</b> and set it value accordingly:
-    <li><b>"show"</b> to show tooltip on hover;</li>
-    <li><b>"hide"</b> to hide tooltip on hover;</li>
+    <ul>
+      <li><b>"show"</b> to show tooltip on hover;</li>
+      <li><b>"hide"</b> to hide tooltip on hover;</li>
+    </ul>
   </li>
   <li id="idOfInput">It's very important to add <b>id</b> to the input because that's how the function binds elements (<i>anything for id works</i>);</li>
   <li>If you specified the size of the thumb you need to add new attribute to the input <b>thumbsize</b>, like so:
