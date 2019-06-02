@@ -7,5 +7,5 @@
   <li>Range input but <b>horizontal</b>;</li>
   <li>The range as <b>from...to</b> (<i>two tooltips</i>) - two inputs on each other, thumb can't go through each others;</li>
   <li><b>On the resize of window move tooltips;</b> DONE</li>
-  <li>Show tooltips only on hover of input;</li>
+  <li><b>Show tooltips only on hover of input;</b> DONE</li>
 </ol>
