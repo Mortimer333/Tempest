@@ -78,6 +78,7 @@ function createTooltip() {
 	      	var input = document.createElement("input")
 					input.type = "text"
 					input.id = "tempestInputId" + indexId;
+					input.style.textAlign = 'center';
 					span.appendChild(input)
 					span.className = "tooltipsInputUp";
 	      } else if (classTempest == "tempestTooltipInputDown") {
@@ -127,9 +128,14 @@ function createTooltip() {
 	    spanRendered.style.left = position - (spanRendered.offsetWidth / 2) + "px";
 			if (spanRendered.className == "tooltipsInputDown" || spanRendered.className == "tooltipsInputUp" || spanRendered.className == "tooltipsInputMiddle") {
 				spanRendered.children[0].value = range.value;
-				document.getElementById("tempestInputId" + indexId).oninput = function (event) {
+        document.getElementById("tempestInputId" + indexId).addEventListener("keydown", function (event) {
+          if (event.keyCode == "13") {
+            updateRangeOnInpute(event.target)
+          }
+				})
+				document.getElementById("tempestInputId" + indexId).addEventListener("focusout", function (event) {
 					updateRangeOnInpute(event.target)
-				}
+				})
 			}
 
 			if (range.attributes.tooltipOnHover) {
