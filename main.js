@@ -111,11 +111,11 @@ function createTooltip() {
 	    //CHECKING CLASS
 	    for (var classTempest of classArray) {
 	      if (classTempest == "tempestTooltipUp" || classTempest == "tempestTooltipInputUp") {
-	        range.outerHTML = "<div> <div style='width:100%;'>" + span.outerHTML + "</div>" + crHTML + "</div>";
+	        range.outerHTML = "<div style='margin:10px 0;'> <div style='width:100%;'>" + span.outerHTML + "</div>" + crHTML + "</div>";
 	      } else if (classTempest == "tempestTooltipDown" || classTempest == "tempestTooltipInputDown") {
-	        range.outerHTML = "<div>" + crHTML + "<div style='width:100%;'>" + span.outerHTML + "</div> </div>";
+	        range.outerHTML = "<div style='margin:10px 0;'>" + crHTML + "<div style='width:100%;'>" + span.outerHTML + "</div> </div>";
 	      } else if (classTempest == "tempestTooltipMiddle" || classTempest == "tempestTooltipInputMiddle") {
-	        range.outerHTML = "<div style='position:relative;'> <div style='width:100%;'>" + span.outerHTML + "</div>" + crHTML + "</div>";
+	        range.outerHTML = "<div style='margin:10px 0;position:relative;'> <div style='width:100%;'>" + span.outerHTML + "</div>" + crHTML + "</div>";
 	      }
 	    }
 
