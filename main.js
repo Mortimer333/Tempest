@@ -106,10 +106,8 @@ function createTooltip() {
 	      }
 	    }
 
-	    //THE ALGORITM WHICH CALCULATES THE POSITION ON WHICH TOOLTIP MUST BE - https://stackoverflow.com/questions/48880523/how-to-precisely-find-thumb-position-of-input-type-range
-	    var position = ((thumbSize / 2) + (ratio * range.clientWidth) - (ratio * thumbSize));
-	    var crHTML = range.outerHTML;
-
+      var crHTML = range.outerHTML;
+      var rangeId = range.id;
 	    //CHECKING CLASS
 	    for (var classTempest of classArray) {
 	      if (classTempest == "tempestTooltipUp" || classTempest == "tempestTooltipInputUp") {
@@ -120,6 +118,9 @@ function createTooltip() {
 	        range.outerHTML = "<div style='position:relative;'> <div style='width:100%;'>" + span.outerHTML + "</div>" + crHTML + "</div>";
 	      }
 	    }
+
+	    //THE ALGORITM WHICH CALCULATES THE POSITION ON WHICH TOOLTIP MUST BE - https://stackoverflow.com/questions/48880523/how-to-precisely-find-thumb-position-of-input-type-range
+	    var position = ((thumbSize / 2) + (ratio * document.getElementById(rangeId).clientWidth) - (ratio * thumbSize));
 
 	    var spanRendered = document.getElementById("tooltip" + indexId);
 	    var leftValue = spanRendered.style.left.replace(/\D/g, '');
